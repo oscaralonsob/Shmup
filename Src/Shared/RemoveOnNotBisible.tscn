@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c04wia4yaaq0c"]
+
+[ext_resource type="Script" path="res://Src/Shared/RemoveOnNotVisible.cs" id="1_kpmw5"]
+
+[node name="RemoveOnNotVisible" type="VisibleOnScreenEnabler2D"]
+script = ExtResource("1_kpmw5")
+
+[connection signal="screen_exited" from="." to="." method="VisibilityChanged"]

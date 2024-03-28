@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://bmfm0i00kl8gt"]
+
+[ext_resource type="Texture2D" uid="uid://dbgyxjxxa2y4c" path="res://Src/PlayerBullet/PlayerBullet.png" id="1_4nbja"]
+[ext_resource type="Script" path="res://Src/PlayerBullet/PlayerBulletMovementComponent.cs" id="2_iveii"]
+[ext_resource type="PackedScene" uid="uid://c04wia4yaaq0c" path="res://Src/Shared/RemoveOnNotBisible.tscn" id="3_xsjqp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ycnlf"]
+radius = 16.0
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+position = Vector2(50, 50)
+scale = Vector2(0.5, 0.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_4nbja")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ycnlf")
+
+[node name="PlayerBulletMovementComponent" type="Node" parent="." node_paths=PackedStringArray("CharacterBody2D")]
+script = ExtResource("2_iveii")
+CharacterBody2D = NodePath("..")
+
+[node name="RemoveOnNotVisible" parent="." node_paths=PackedStringArray("CharacterBody2D") instance=ExtResource("3_xsjqp")]
+CharacterBody2D = NodePath("..")
