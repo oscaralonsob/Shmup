@@ -11,6 +11,7 @@ public partial class PlayerMovementComponent : Node
 	}
 
 	private void Movement(double delta) {
+		//TODO: resource
 		Vector2 InputDirection = Vector2.Zero;
 		float Speed = 100;
 		

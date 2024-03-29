@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://btn2ubbwwgu7o"]
+[gd_scene load_steps=5 format=3 uid="uid://btn2ubbwwgu7o"]
 
 [ext_resource type="Texture2D" uid="uid://cfctc354wq3a" path="res://Src/Player/Player.png" id="1_48m15"]
 [ext_resource type="Script" path="res://Src/Player/PlayerMovementComponent.cs" id="2_ydp1e"]
+[ext_resource type="Script" path="res://Src/Player/PlayerShootComponent.cs" id="3_kpe0n"]
+[ext_resource type="PackedScene" uid="uid://bmfm0i00kl8gt" path="res://Src/PlayerBullet/PlayerBullet.tscn" id="4_0388b"]
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 
@@ -14,3 +16,13 @@ polygon = PackedVector2Array(16, 0, -16, -16, -16, 16)
 [node name="PlayerMovementComponent" type="Node" parent="." node_paths=PackedStringArray("CharacterBody2D")]
 script = ExtResource("2_ydp1e")
 CharacterBody2D = NodePath("..")
+
+[node name="PlayerShootComponent" type="Node2D" parent="." node_paths=PackedStringArray("Timer")]
+position = Vector2(25, 0)
+script = ExtResource("3_kpe0n")
+BulletScene = ExtResource("4_0388b")
+Timer = NodePath("Timer")
+
+[node name="Timer" type="Timer" parent="PlayerShootComponent"]
+
+[connection signal="timeout" from="PlayerShootComponent/Timer" to="PlayerShootComponent" method="TimeOut"]

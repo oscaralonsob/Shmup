@@ -8,11 +8,12 @@ public partial class PlayerBulletMovementComponent : Node
 	private float Speed { set; get; }
 
 	public override void _Ready() {
-		Direction = Vector2.Up;//TODO: provisional
-		Speed = 100;//TODO: provisional
+		Speed = 300;//TODO: resource
 	}
 
 	public override void _PhysicsProcess(double delta) {
+		Direction = Vector2.Right.Rotated(CharacterBody2D.GlobalRotation);
 		CharacterBody2D.MoveAndCollide(Direction * Speed * (float) delta);
 	}
+	//TODO: collision to ignore player
 }
