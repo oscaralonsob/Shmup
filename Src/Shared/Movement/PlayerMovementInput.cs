@@ -3,7 +3,7 @@ using Godot;
 [GlobalClass]
 public partial class PlayerMovementInput: MovementInput
 {
-	public override Vector2 MovementVector() {
+	public override Vector2 MovementVector(CharacterBody2D character) {
 		Vector2 InputDirection = Vector2.Zero;
 		
 		if (Input.IsActionPressed("MoveRight")) {

@@ -1,6 +1,6 @@
 using Godot;
 
-public partial class PlayerMovementComponent : Node
+public partial class MovementComponent : Node
 {
 	[Export]
 	private CharacterBody2D CharacterBody2D { set; get; }
@@ -8,17 +8,18 @@ public partial class PlayerMovementComponent : Node
 	private MovementInput MovementInput { set; get; }
 	[Export]
 	private DirectionInput DirectionInput { set; get; }
+	
+	//TODO: resource
+	[Export]
+	float Speed = 100;
+
 	public override void _PhysicsProcess(double delta) {
 		Movement(delta);
 		Direction();
 	}
 
 	private void Movement(double delta) {
-		//TODO: resource
-		float Speed = 100;
-		
-		Vector2 input = MovementInput.MovementVector();
-
+		Vector2 input = MovementInput.MovementVector(CharacterBody2D);
 		CharacterBody2D.MoveAndCollide(input * Speed * (float) delta);
 	}
 

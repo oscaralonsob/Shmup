@@ -9,6 +9,5 @@ public partial class PlayerDirectionInput: DirectionInput
 			return mousePosition;
 		}
 		return Vector2.Right.Rotated(character.GlobalRotation);
-	}
-		
+	}	
 }
