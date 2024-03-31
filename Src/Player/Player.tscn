@@ -1,9 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://btn2ubbwwgu7o"]
+[gd_scene load_steps=9 format=3 uid="uid://btn2ubbwwgu7o"]
 
 [ext_resource type="Texture2D" uid="uid://cfctc354wq3a" path="res://Src/Player/Player.png" id="1_48m15"]
 [ext_resource type="Script" path="res://Src/Player/PlayerMovementComponent.cs" id="2_ydp1e"]
 [ext_resource type="Script" path="res://Src/Player/PlayerShootComponent.cs" id="3_kpe0n"]
+[ext_resource type="Script" path="res://Src/Shared/Movement/PlayerMovementInput.cs" id="3_wqa8g"]
 [ext_resource type="PackedScene" uid="uid://bmfm0i00kl8gt" path="res://Src/PlayerBullet/PlayerBullet.tscn" id="4_0388b"]
+[ext_resource type="Script" path="res://Src/Shared/Movement/PlayerDirectionInput.cs" id="4_awyv7"]
+
+[sub_resource type="Resource" id="Resource_paao5"]
+script = ExtResource("3_wqa8g")
+
+[sub_resource type="Resource" id="Resource_nm330"]
+script = ExtResource("4_awyv7")
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 
@@ -16,6 +24,8 @@ polygon = PackedVector2Array(16, 0, -16, -16, -16, 16)
 [node name="PlayerMovementComponent" type="Node" parent="." node_paths=PackedStringArray("CharacterBody2D")]
 script = ExtResource("2_ydp1e")
 CharacterBody2D = NodePath("..")
+MovementInput = SubResource("Resource_paao5")
+DirectionInput = SubResource("Resource_nm330")
 
 [node name="PlayerShootComponent" type="Node2D" parent="." node_paths=PackedStringArray("Timer")]
 position = Vector2(25, 0)
