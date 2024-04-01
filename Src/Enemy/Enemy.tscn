@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Src/Shared/Movement/MovementComponent.cs" id="2_xebkq"]
 [ext_resource type="Script" path="res://Src/Player/PlayerMovementInput.cs" id="3_hjspg"]
 [ext_resource type="Script" path="res://Src/Shared/Movement/NullDirectionInput.cs" id="3_y13oe"]
-[ext_resource type="PackedScene" uid="uid://cuwa7hv00452h" path="res://Src/Shared/RemoveOnHitComponent.tscn" id="5_y404y"]
+[ext_resource type="PackedScene" uid="uid://cuwa7hv00452h" path="res://Src/Shared/Collision/RemoveOnHitComponent.tscn" id="5_cyqdr"]
 
 [sub_resource type="Resource" id="Resource_2xcmm"]
 script = ExtResource("3_hjspg")
@@ -28,7 +28,7 @@ MovementInput = SubResource("Resource_2xcmm")
 DirectionInput = SubResource("Resource_4gol8")
 Speed = 500.0
 
-[node name="RemoveOnHitComponent" parent="." node_paths=PackedStringArray("CharacterBody2D") instance=ExtResource("5_y404y")]
+[node name="RemoveOnHitComponent" parent="." node_paths=PackedStringArray("CharacterBody2D") instance=ExtResource("5_cyqdr")]
 CharacterBody2D = NodePath("..")
 
 [node name="CollisionShape2D" parent="RemoveOnHitComponent" index="0"]

@@ -4,8 +4,8 @@
 [ext_resource type="Script" path="res://Src/Shared/Movement/MovementComponent.cs" id="2_h43vb"]
 [ext_resource type="Script" path="res://Src/PlayerBullet/BulletMovementInput.cs" id="3_o6mge"]
 [ext_resource type="Script" path="res://Src/Shared/Movement/NullDirectionInput.cs" id="4_f06n2"]
-[ext_resource type="PackedScene" uid="uid://c04wia4yaaq0c" path="res://Src/Shared/RemoveOnNotVisible.tscn" id="5_5bpcs"]
-[ext_resource type="PackedScene" uid="uid://cuwa7hv00452h" path="res://Src/Shared/RemoveOnHitComponent.tscn" id="6_2hb1a"]
+[ext_resource type="PackedScene" uid="uid://c04wia4yaaq0c" path="res://Src/Shared/Collision/RemoveOnNotVisible.tscn" id="5_m7fq6"]
+[ext_resource type="PackedScene" uid="uid://cuwa7hv00452h" path="res://Src/Shared/Collision/RemoveOnHitComponent.tscn" id="6_ytuhq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ycnlf"]
 radius = 16.0
@@ -34,10 +34,10 @@ MovementInput = SubResource("Resource_omkds")
 DirectionInput = SubResource("Resource_fkc4v")
 Speed = 500.0
 
-[node name="RemoveOnNotVisible" parent="." node_paths=PackedStringArray("CharacterBody2D") instance=ExtResource("5_5bpcs")]
+[node name="RemoveOnNotVisible" parent="." node_paths=PackedStringArray("CharacterBody2D") instance=ExtResource("5_m7fq6")]
 CharacterBody2D = NodePath("..")
 
-[node name="RemoveOnHitComponent" parent="." node_paths=PackedStringArray("CharacterBody2D") instance=ExtResource("6_2hb1a")]
+[node name="RemoveOnHitComponent" parent="." node_paths=PackedStringArray("CharacterBody2D") instance=ExtResource("6_ytuhq")]
 CharacterBody2D = NodePath("..")
 
 [node name="CollisionShape2D" parent="RemoveOnHitComponent" index="0"]

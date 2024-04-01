@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://c04wia4yaaq0c"]
 
-[ext_resource type="Script" path="res://Src/Shared/RemoveOnNotVisible.cs" id="1_tg6lm"]
+[ext_resource type="Script" path="res://Src/Shared/Collision/RemoveOnNotVisible.cs" id="1_k2mrf"]
 
 [node name="RemoveOnNotVisible" type="VisibleOnScreenEnabler2D"]
-script = ExtResource("1_tg6lm")
+script = ExtResource("1_k2mrf")
 
 [connection signal="screen_exited" from="." to="." method="VisibilityChanged"]
