@@ -1,0 +1,37 @@
+[gd_scene load_steps=8 format=3 uid="uid://bmefvnaxxsdfp"]
+
+[ext_resource type="Texture2D" uid="uid://bimua7pmwe5c6" path="res://Src/Enemy/Enemy.png" id="1_2g753"]
+[ext_resource type="Script" path="res://Src/Shared/Movement/MovementComponent.cs" id="2_xebkq"]
+[ext_resource type="Script" path="res://Src/Player/PlayerMovementInput.cs" id="3_hjspg"]
+[ext_resource type="Script" path="res://Src/Shared/Movement/NullDirectionInput.cs" id="3_y13oe"]
+[ext_resource type="PackedScene" uid="uid://cuwa7hv00452h" path="res://Src/Shared/RemoveOnHitComponent.tscn" id="5_y404y"]
+
+[sub_resource type="Resource" id="Resource_2xcmm"]
+script = ExtResource("3_hjspg")
+
+[sub_resource type="Resource" id="Resource_4gol8"]
+script = ExtResource("3_y13oe")
+
+[node name="Enemy" type="CharacterBody2D"]
+safe_margin = 2.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_2g753")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(16, 0, -16, -16, -16, 16)
+
+[node name="MovementComponent" type="Node" parent="." node_paths=PackedStringArray("CharacterBody2D")]
+script = ExtResource("2_xebkq")
+CharacterBody2D = NodePath("..")
+MovementInput = SubResource("Resource_2xcmm")
+DirectionInput = SubResource("Resource_4gol8")
+Speed = 500.0
+
+[node name="RemoveOnHitComponent" parent="." node_paths=PackedStringArray("CharacterBody2D") instance=ExtResource("5_y404y")]
+CharacterBody2D = NodePath("..")
+
+[node name="CollisionShape2D" parent="RemoveOnHitComponent" index="0"]
+polygon = PackedVector2Array(18, 0, -18, 18, -18, -18)
+
+[editable path="RemoveOnHitComponent"]
