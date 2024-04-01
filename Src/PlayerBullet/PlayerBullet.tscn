@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dbgyxjxxa2y4c" path="res://Src/PlayerBullet/PlayerBullet.png" id="1_4nbja"]
 [ext_resource type="Script" path="res://Src/Shared/Movement/MovementComponent.cs" id="2_h43vb"]
 [ext_resource type="Script" path="res://Src/PlayerBullet/BulletMovementInput.cs" id="3_o6mge"]
-[ext_resource type="PackedScene" uid="uid://c04wia4yaaq0c" path="res://Src/Shared/RemoveOnNotBisible.tscn" id="3_xsjqp"]
+[ext_resource type="PackedScene" uid="uid://c04wia4yaaq0c" path="res://Src/Shared/RemoveOnNotVisible.tscn" id="3_xsjqp"]
 [ext_resource type="Script" path="res://Src/Shared/Movement/NullDirectionInput.cs" id="4_f06n2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ycnlf"]
