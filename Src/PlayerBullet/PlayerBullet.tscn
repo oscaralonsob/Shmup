@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dbgyxjxxa2y4c" path="res://Src/PlayerBullet/PlayerBullet.png" id="1_4nbja"]
 [ext_resource type="Script" path="res://Src/Shared/Movement/MovementComponent.cs" id="2_h43vb"]
-[ext_resource type="Script" path="res://Src/Shared/Movement/BulletMovementInput.cs" id="3_nbjab"]
+[ext_resource type="Script" path="res://Src/PlayerBullet/BulletMovementInput.cs" id="3_o6mge"]
 [ext_resource type="PackedScene" uid="uid://c04wia4yaaq0c" path="res://Src/Shared/RemoveOnNotBisible.tscn" id="3_xsjqp"]
 [ext_resource type="Script" path="res://Src/Shared/Movement/NullDirectionInput.cs" id="4_f06n2"]
 
@@ -10,7 +10,7 @@
 radius = 16.0
 
 [sub_resource type="Resource" id="Resource_omkds"]
-script = ExtResource("3_nbjab")
+script = ExtResource("3_o6mge")
 
 [sub_resource type="Resource" id="Resource_fkc4v"]
 script = ExtResource("4_f06n2")

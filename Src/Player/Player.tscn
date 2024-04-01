@@ -3,15 +3,15 @@
 [ext_resource type="Texture2D" uid="uid://cfctc354wq3a" path="res://Src/Player/Player.png" id="1_48m15"]
 [ext_resource type="Script" path="res://Src/Shared/Movement/MovementComponent.cs" id="2_mcnik"]
 [ext_resource type="Script" path="res://Src/Player/PlayerShootComponent.cs" id="3_kpe0n"]
-[ext_resource type="Script" path="res://Src/Shared/Movement/PlayerMovementInput.cs" id="3_wqa8g"]
+[ext_resource type="Script" path="res://Src/Player/PlayerMovementInput.cs" id="3_r1t82"]
 [ext_resource type="PackedScene" uid="uid://bmfm0i00kl8gt" path="res://Src/PlayerBullet/PlayerBullet.tscn" id="4_0388b"]
-[ext_resource type="Script" path="res://Src/Shared/Movement/PlayerDirectionInput.cs" id="4_awyv7"]
+[ext_resource type="Script" path="res://Src/Player/PlayerDirectionInput.cs" id="4_vmw1l"]
 
 [sub_resource type="Resource" id="Resource_vun87"]
-script = ExtResource("3_wqa8g")
+script = ExtResource("3_r1t82")
 
 [sub_resource type="Resource" id="Resource_yxc7w"]
-script = ExtResource("4_awyv7")
+script = ExtResource("4_vmw1l")
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 
