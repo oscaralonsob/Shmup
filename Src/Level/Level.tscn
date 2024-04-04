@@ -9,5 +9,5 @@
 position = Vector2(541, 127)
 motion_mode = 1
 
-[node name="Player" parent="." instance=ExtResource("1_r262t")]
+[node name="Player" parent="." groups=["Player"] instance=ExtResource("1_r262t")]
 position = Vector2(164, 126)

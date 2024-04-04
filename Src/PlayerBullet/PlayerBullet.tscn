@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dbgyxjxxa2y4c" path="res://Src/PlayerBullet/PlayerBullet.png" id="1_4nbja"]
 [ext_resource type="Script" path="res://Src/Shared/Movement/MovementComponent.cs" id="2_h43vb"]
 [ext_resource type="Script" path="res://Src/PlayerBullet/BulletMovementInput.cs" id="3_o6mge"]
-[ext_resource type="Script" path="res://Src/Shared/Movement/NullDirectionInput.cs" id="4_f06n2"]
+[ext_resource type="Script" path="res://Src/Shared/Direction/NullDirectionInput.cs" id="4_gx15y"]
 [ext_resource type="PackedScene" uid="uid://c04wia4yaaq0c" path="res://Src/Shared/Collision/RemoveOnNotVisible.tscn" id="5_m7fq6"]
 [ext_resource type="PackedScene" uid="uid://cuwa7hv00452h" path="res://Src/Shared/Collision/RemoveOnHitComponent.tscn" id="6_ytuhq"]
 
@@ -14,7 +14,7 @@ radius = 16.0
 script = ExtResource("3_o6mge")
 
 [sub_resource type="Resource" id="Resource_fkc4v"]
-script = ExtResource("4_f06n2")
+script = ExtResource("4_gx15y")
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 position = Vector2(50, 50)
