@@ -1,0 +1,43 @@
+[gd_scene load_steps=10 format=3 uid="uid://cl6sntyt04wrj"]
+
+[ext_resource type="Texture2D" uid="uid://8m34ivymk3vn" path="res://Src/EnemyBullet/EnemyBullet.png" id="1_chiyw"]
+[ext_resource type="Script" path="res://Src/Shared/Movement/MovementComponent.cs" id="2_cxuc6"]
+[ext_resource type="Script" path="res://Src/PlayerBullet/BulletMovementInput.cs" id="3_jaxxi"]
+[ext_resource type="Script" path="res://Src/Shared/Direction/NullDirectionInput.cs" id="4_b8h0u"]
+[ext_resource type="PackedScene" uid="uid://cuwa7hv00452h" path="res://Src/Shared/Collision/RemoveOnHitComponent.tscn" id="5_fm1ux"]
+[ext_resource type="PackedScene" uid="uid://c04wia4yaaq0c" path="res://Src/Shared/Collision/RemoveOnNotVisible.tscn" id="6_54myp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r57v6"]
+radius = 16.0
+
+[sub_resource type="Resource" id="Resource_58vj0"]
+script = ExtResource("3_jaxxi")
+
+[sub_resource type="Resource" id="Resource_melkh"]
+script = ExtResource("4_b8h0u")
+
+[node name="EnemyBullet" type="CharacterBody2D"]
+scale = Vector2(0.5, 0.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_chiyw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_r57v6")
+
+[node name="MovementComponent" type="Node" parent="." node_paths=PackedStringArray("CharacterBody2D")]
+script = ExtResource("2_cxuc6")
+CharacterBody2D = NodePath("..")
+MovementInput = SubResource("Resource_58vj0")
+DirectionInput = SubResource("Resource_melkh")
+
+[node name="RemoveOnNotVisible" parent="." node_paths=PackedStringArray("CharacterBody2D") instance=ExtResource("6_54myp")]
+CharacterBody2D = NodePath("..")
+
+[node name="RemoveOnHitComponent" parent="." node_paths=PackedStringArray("CharacterBody2D") instance=ExtResource("5_fm1ux")]
+CharacterBody2D = NodePath("..")
+
+[node name="CollisionShape2D" parent="RemoveOnHitComponent" index="0"]
+polygon = PackedVector2Array(18, 0, 12, 12, 0, 18, -12, 12, -18, 0, -12, -12, 0, -18, 12, -12)
+
+[editable path="RemoveOnHitComponent"]
