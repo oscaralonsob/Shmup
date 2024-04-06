@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://3olgilhv282g"]
+
+[ext_resource type="Script" path="res://Src/Player/PlayerShootComponent.cs" id="1_pobbf"]
+[ext_resource type="PackedScene" uid="uid://bmfm0i00kl8gt" path="res://Src/PlayerBullet/PlayerBullet.tscn" id="2_pmm82"]
+
+[node name="PlayerShootComponent" type="Node2D" node_paths=PackedStringArray("Timer")]
+position = Vector2(25, 0)
+script = ExtResource("1_pobbf")
+BulletScene = ExtResource("2_pmm82")
+Timer = NodePath("Timer")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="TimeOut"]
