@@ -1,18 +1,22 @@
-[gd_scene load_steps=10 format=3 uid="uid://bmefvnaxxsdfp"]
+[gd_scene load_steps=12 format=3 uid="uid://bmefvnaxxsdfp"]
 
 [ext_resource type="Texture2D" uid="uid://bimua7pmwe5c6" path="res://Src/Enemy/Enemy.png" id="1_2g753"]
 [ext_resource type="Script" path="res://Src/Shared/Movement/MovementComponent.cs" id="2_xebkq"]
 [ext_resource type="Script" path="res://Src/Shared/Movement/NullMovementInput.cs" id="3_foktl"]
 [ext_resource type="Script" path="res://Src/Shared/Direction/PlayerFollowDirectionInput.cs" id="4_bs8bo"]
-[ext_resource type="PackedScene" uid="uid://3olgilhv282g" path="res://Src/Shared/ShootComponent.tscn" id="5_al56d"]
 [ext_resource type="PackedScene" uid="uid://cuwa7hv00452h" path="res://Src/Shared/Collision/RemoveOnHitComponent.tscn" id="5_cyqdr"]
+[ext_resource type="PackedScene" uid="uid://3olgilhv282g" path="res://Src/Shared/Shoot/ShootComponent.tscn" id="5_hemfe"]
 [ext_resource type="PackedScene" uid="uid://cl6sntyt04wrj" path="res://Src/EnemyBullet/EnemyBullet.tscn" id="6_3hkp5"]
+[ext_resource type="Script" path="res://Src/Shared/Shoot/AlwaysShootInput.cs" id="6_u1rp2"]
 
 [sub_resource type="Resource" id="Resource_nqeqt"]
 script = ExtResource("3_foktl")
 
 [sub_resource type="Resource" id="Resource_babpx"]
 script = ExtResource("4_bs8bo")
+
+[sub_resource type="Resource" id="Resource_bhe56"]
+script = ExtResource("6_u1rp2")
 
 [node name="Enemy" type="CharacterBody2D"]
 safe_margin = 2.0
@@ -29,8 +33,9 @@ CharacterBody2D = NodePath("..")
 MovementInput = SubResource("Resource_nqeqt")
 DirectionInput = SubResource("Resource_babpx")
 
-[node name="PlayerShootComponent" parent="." instance=ExtResource("5_al56d")]
+[node name="ShootComponent" parent="." instance=ExtResource("5_hemfe")]
 position = Vector2(30, 0)
+ShootInput = SubResource("Resource_bhe56")
 BulletScene = ExtResource("6_3hkp5")
 
 [node name="RemoveOnHitComponent" parent="." node_paths=PackedStringArray("CharacterBody2D") instance=ExtResource("5_cyqdr")]

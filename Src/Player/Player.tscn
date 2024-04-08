@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://btn2ubbwwgu7o"]
+[gd_scene load_steps=11 format=3 uid="uid://btn2ubbwwgu7o"]
 
 [ext_resource type="Texture2D" uid="uid://cfctc354wq3a" path="res://Src/Player/Player.png" id="1_48m15"]
 [ext_resource type="Script" path="res://Src/Shared/Movement/MovementComponent.cs" id="2_mcnik"]
 [ext_resource type="Script" path="res://Src/Player/PlayerMovementInput.cs" id="3_r1t82"]
 [ext_resource type="Script" path="res://Src/Player/PlayerDirectionInput.cs" id="4_vmw1l"]
-[ext_resource type="PackedScene" uid="uid://3olgilhv282g" path="res://Src/Shared/ShootComponent.tscn" id="5_v3rk1"]
+[ext_resource type="PackedScene" uid="uid://3olgilhv282g" path="res://Src/Shared/Shoot/ShootComponent.tscn" id="5_phqit"]
+[ext_resource type="Script" path="res://Src/Player/PlayerShootInput.cs" id="6_euyv7"]
 [ext_resource type="PackedScene" uid="uid://cuwa7hv00452h" path="res://Src/Shared/Collision/RemoveOnHitComponent.tscn" id="7_dyy3r"]
 
 [sub_resource type="Resource" id="Resource_vun87"]
@@ -12,6 +13,9 @@ script = ExtResource("3_r1t82")
 
 [sub_resource type="Resource" id="Resource_yxc7w"]
 script = ExtResource("4_vmw1l")
+
+[sub_resource type="Resource" id="Resource_o27ip"]
+script = ExtResource("6_euyv7")
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 
@@ -27,8 +31,9 @@ CharacterBody2D = NodePath("..")
 MovementInput = SubResource("Resource_vun87")
 DirectionInput = SubResource("Resource_yxc7w")
 
-[node name="PlayerShootComponent" parent="." instance=ExtResource("5_v3rk1")]
+[node name="ShootComponent" parent="." instance=ExtResource("5_phqit")]
 position = Vector2(30, 0)
+ShootInput = SubResource("Resource_o27ip")
 
 [node name="RemoveOnHitComponent" parent="." node_paths=PackedStringArray("CharacterBody2D") instance=ExtResource("7_dyy3r")]
 CharacterBody2D = NodePath("..")
