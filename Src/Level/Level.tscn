@@ -5,6 +5,9 @@
 
 [node name="Node" type="Node"]
 
+[node name="Enemy2" parent="." instance=ExtResource("2_yd6sj")]
+position = Vector2(387, 129)
+
 [node name="Enemy" parent="." instance=ExtResource("2_yd6sj")]
 position = Vector2(541, 127)
 motion_mode = 1
