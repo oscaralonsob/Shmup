@@ -18,7 +18,8 @@ script = ExtResource("4_b8h0u")
 
 [node name="EnemyBullet" type="CharacterBody2D"]
 scale = Vector2(0.5, 0.5)
-collision_layer = 2
+collision_layer = 8
+collision_mask = 21
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_chiyw")
@@ -36,7 +37,8 @@ DirectionInput = SubResource("Resource_melkh")
 CharacterBody2D = NodePath("..")
 
 [node name="RemoveOnHitComponent" parent="." node_paths=PackedStringArray("CharacterBody2D") instance=ExtResource("5_fm1ux")]
-collision_layer = 2
+collision_layer = 8
+collision_mask = 21
 CharacterBody2D = NodePath("..")
 
 [node name="CollisionShape2D" parent="RemoveOnHitComponent" index="0"]
