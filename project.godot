@@ -14,11 +14,6 @@ config/name="Shmup"
 config/features=PackedStringArray("4.2", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
-[autoload]
-
-EventBus="*res://Src/GameManager/EventBus.cs"
-LoseManager="*res://Src/GameManager/LoseManager.cs"
-
 [dotnet]
 
 project/assembly_name="Shmup"

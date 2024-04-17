@@ -1,22 +1,23 @@
 using Godot;
-//TODO: create resource so we do not need singleton
 
-public partial class EventBus : Node
+[GlobalClass]
+public partial class EventBus : Resource
 {
-	public static EventBus Instance { get; private set; }
-
 	[Signal]
 	public delegate void PlayerKilledEventHandler();
+	[Signal]
+	public delegate void EnemiesKilledEventHandler();
 
-	public override void _Ready() {
-		if (null == Instance) {
-      Instance = this;
-    }
-
+	public EventBus() {
 		PlayerKilled += PlayerKilledHandler;
+		EnemiesKilled += EnemiesKilledHandler;
 	}
 
 	private void PlayerKilledHandler() {
 		GD.Print("Player killed");
+	}	
+
+	private void EnemiesKilledHandler() {
+		GD.Print("Enemies killed");
 	}	
 }

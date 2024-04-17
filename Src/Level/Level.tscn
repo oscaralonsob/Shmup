@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://bxpxjig1pc4vy"]
+[gd_scene load_steps=7 format=3 uid="uid://bxpxjig1pc4vy"]
 
 [ext_resource type="PackedScene" uid="uid://ccgryqdrkamt6" path="res://Src/Tile/Map.tscn" id="1_je6ii"]
 [ext_resource type="PackedScene" uid="uid://btn2ubbwwgu7o" path="res://Src/Player/Player.tscn" id="1_r262t"]
 [ext_resource type="PackedScene" uid="uid://bmefvnaxxsdfp" path="res://Src/Enemy/Enemy.tscn" id="2_yd6sj"]
+[ext_resource type="Script" path="res://Src/GameManager/LoseManager.cs" id="4_07b63"]
+[ext_resource type="Script" path="res://Src/GameManager/WinManager.cs" id="4_krspt"]
+[ext_resource type="Resource" uid="uid://5ojgkapsene7" path="res://Src/GameManager/EventBus.tres" id="5_dcid7"]
 
 [node name="Node" type="Node"]
 
@@ -13,8 +16,16 @@ position = Vector2(164, 126)
 position = Vector2(387, 129)
 
 [node name="Enemy" parent="." instance=ExtResource("2_yd6sj")]
-position = Vector2(541, 127)
+position = Vector2(249, 84)
 motion_mode = 1
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("1_r262t")]
 position = Vector2(190, 164)
+
+[node name="WinManager" type="Node" parent="."]
+script = ExtResource("4_krspt")
+EventBus = ExtResource("5_dcid7")
+
+[node name="LoseManager" type="Node" parent="."]
+script = ExtResource("4_07b63")
+EventBus = ExtResource("5_dcid7")
